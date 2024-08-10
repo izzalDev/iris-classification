@@ -1,4 +1,4 @@
-name: secondhand-car-valuation
+name: iris-classification
 channels:
 - defaults
 - conda-forge
