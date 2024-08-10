@@ -23,5 +23,4 @@ dependencies:
   - jcopml
 variables:
   MLFLOW_TRACKING_USERNAME: izzalDev
-  MLFLOW_TRACKING_PASSWORD: pass
   MLFLOW_TRACKING_URI: https://dagshub.com/izzalDev/iris-classification.mlflow
