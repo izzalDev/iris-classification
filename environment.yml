@@ -1,0 +1,27 @@
+name: secondhand-car-valuation
+channels:
+- defaults
+- conda-forge
+- pip
+dependencies:
+- python=3.9
+- numpy
+- pandas
+- scikit-learn
+- matplotlib
+- seaborn
+- ipykernel
+- pip
+- skl2onnx
+- onnxruntime
+- skl2onnx
+- dvc
+- nbconvert
+- pip:
+  - dagshub
+  - mlflow
+  - jcopml
+variables:
+  MLFLOW_TRACKING_USERNAME: izzalDev
+  MLFLOW_TRACKING_PASSWORD: pass
+  MLFLOW_TRACKING_URI: https://dagshub.com/izzalDev/secondhand-car-valuation.mlflow
