@@ -1,14 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Iris Classification</title>
   </head>
   <body>
-    <div id="app" class="bg-blue-500">
-      <h1>Hallo Dunia!</h1>
+    <div id="app" class="h-dvh bg-gray-700">
+      <form class="max-w-sm m-auto border-cyan-400">
+        <div class="mb-5">
+          <label for="sepal-length"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            Sepal Lenght (cm)
+          </label>
+          <input type="number" id="sepal-length"  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Sepal Lenght" required/>
+        </div>
+        <div class="mb-5">
+          <label for="sepal-width" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            Sepal Width (cm)
+          </label>
+          <input type="number" id="sepal-width"  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Sepal Width" required/>
+        </div>
+        <div class="mb-5">
+          <label for="petal-length"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            Petal Lenght (cm)
+          </label>
+          <input type="number" id="petal-length"  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Petal Lenght" required/>
+        </div>
+        <div class="mb-5">
+          <label for="petal-width"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            Petal Width (cm)
+          </label>
+          <input type="number" id="sepal-width"  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Petal Width" required/>
+        </div>
+        <button type="submit"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Register new account
+        </button>
+      </form>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
