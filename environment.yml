@@ -21,6 +21,7 @@ dependencies:
   - dagshub
   - mlflow
   - jcopml
+  - graphviz
 variables:
   MLFLOW_TRACKING_USERNAME: izzalDev
   MLFLOW_TRACKING_URI: https://dagshub.com/izzalDev/iris-classification.mlflow

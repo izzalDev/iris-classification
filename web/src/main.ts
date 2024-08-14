@@ -1,30 +1,39 @@
-import './style.css'
-import * as ort from 'onnxruntime-web';
+import "./style.css";
+import * as ort from "onnxruntime-web";
 
-ort.env.wasm.wasmPaths = '../node_modules/onnxruntime-web/dist/';
+async function main(): Promise<void> {
+  try {
+    // Membuat sesi baru dan memuat model ONNX tertentu.
+    const session: ort.InferenceSession = await ort.InferenceSession.create(
+      "./model.onnx",
+    );
 
-async function main() {
-    try {
-        // create a new session and load the specific model.
-        await ort.InferenceSession.create('./model.onnx')
+    // Menyiapkan input. Tensor memerlukan TypedArray yang sesuai sebagai data.
+    const input: ort.Tensor = new ort.Tensor(
+      "float32",
+      [5.1, 3.5, 1.4, 0.2],
+      [1, 4]
+    );
 
-        // prepare inputs. a tensor need its corresponding TypedArray as data
-        // const dataA = Float32Array.from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
-        // const tensorA = new ort.Tensor('float32', dataA, [3, 4]);
+    // Memasukkan input dan menjalankan model
+    const output: ort.InferenceSession.OnnxValueMapType = await session.run({
+      X: input,
+    });
 
-        // // prepare feeds. use model input names as keys.
-        // const feeds = { X: tensorA };
+    // Membaca hasil dari output
+    const label: ort.Tensor = output.label;
+    const probabilities: ort.Tensor = output.probabilities;
 
-        // // feed inputs and run
-        // const results = await session.run(feeds);
+    const maxProbability: number = Math.max(
+      ...(probabilities.data as Float32Array)
+    );
 
-        // // read from results
-        // const dataC = results.c.data;
-        // document.write(`data of result tensor 'c': ${dataC}`);
-
-    } catch (e) {
-        document.write(`failed to inference ONNX model: ${e}.`);
-    }
+    console.log(
+      `Label: ${label.data} Probabilitas Maksimum: ${maxProbability * 100}%`
+    );
+  } catch (e) {
+    document.write(`failed to inference ONNX model: ${e}.`);
+  }
 }
 
 main();

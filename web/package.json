@@ -17,6 +17,7 @@
     "vite-plugin-static-copy": "^1.0.6"
   },
   "dependencies": {
-    "onnxruntime-web": "^1.18.0"
+    "onnxruntime-web": "^1.18.0",
+    "type-is": "^1.6.18"
   }
 }
