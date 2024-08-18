@@ -35,8 +35,8 @@ jobs:
         uses: actions/setup-node@v4.0.3
       - name: Build
         run: |
-          cd web \
-          npm run install \
+          cd web
+          npm install
           npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
