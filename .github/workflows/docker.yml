@@ -23,13 +23,14 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
+          context: ./web
           images: ghcr.io/izzaldev/iris-classification
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
           context: ./web
           push: true
-          tags: izzaldev/iris-classification:latest
+          tags: ghcr.io/izzaldev/iris-classification:latest
           labels: ${{ steps.meta.outputs.labels }}
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v1
