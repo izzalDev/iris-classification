@@ -29,7 +29,7 @@ jobs:
         with:
           context: ./web
           push: true
-          tags: latest
+          tags: izzaldev/iris-classification:latest
           labels: ${{ steps.meta.outputs.labels }}
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v1
