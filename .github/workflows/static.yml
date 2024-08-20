@@ -31,12 +31,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Nodejs
+      - name: Setup Node
         uses: actions/setup-node@v4
-      - name: Build
-        run: |
+      - run: |
           cd web
+          ls
           npm install
+      - run: |
+          ls
+          cd web
           npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
