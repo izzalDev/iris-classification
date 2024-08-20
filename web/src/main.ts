@@ -2,38 +2,29 @@ import "./style.css";
 import * as ort from "onnxruntime-web";
 
 async function main(): Promise<void> {
+  const result: HTMLDivElement = document.getElementById("result") as HTMLDivElement;
+  const form: HTMLFormElement = document.getElementById("form") as HTMLFormElement;
+  const formInput: HTMLInputElement[] = ["sepal-length", "sepal-width", "petal-length", "petal-width"]
+  .map(id => document.getElementById(id) as HTMLInputElement);
+
   try {
     // Membuat sesi baru dan memuat model ONNX tertentu.
-    const session: ort.InferenceSession = await ort.InferenceSession.create(
-      "./model.onnx",
-    );
+    const session: ort.InferenceSession = await ort.InferenceSession.create("./model.onnx");
 
-    // Menyiapkan input. Tensor memerlukan TypedArray yang sesuai sebagai data.
-    const input: ort.Tensor = new ort.Tensor(
-      "float32",
-      [5.1, 3.5, 1.4, 0.2],
-      [1, 4]
-    );
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      // Memasukkan input dan menjalankan model
+      const output: ort.InferenceSession.OnnxValueMapType = await session.run({X: new ort.Tensor(
+        "float32",
+        formInput.map(input => parseFloat(input.value)),
+        [1, 4]
+      )});
 
-    // Memasukkan input dan menjalankan model
-    const output: ort.InferenceSession.OnnxValueMapType = await session.run({
-      X: input,
+      result.innerText = output.label.data[0].toString();
     });
-
-    // Membaca hasil dari output
-    const label: ort.Tensor = output.label;
-    const probabilities: ort.Tensor = output.probabilities;
-
-    const maxProbability: number = Math.max(
-      ...(probabilities.data as Float32Array)
-    );
-
-    console.log(
-      `Label: ${label.data} Probabilitas Maksimum: ${maxProbability * 100}%`
-    );
   } catch (e) {
-    document.write(`failed to inference ONNX model: ${e}.`);
+    document.write(`Error: ${e}.`);
   }
 }
 
-main();
+document.addEventListener("DOMContentLoaded", main);
