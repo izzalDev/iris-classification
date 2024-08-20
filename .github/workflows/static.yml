@@ -32,7 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Nodejs
-        uses: actions/setup-node@v4.0.3
+        uses: actions/setup-node@v4
       - name: Build
         run: |
           cd web
