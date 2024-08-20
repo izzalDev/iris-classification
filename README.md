@@ -1,4 +1,4 @@
-# 🤖 Klasifikasi Bunga Iris dengan algoritma Random Forest
+# 🤖 Klasifikasi Bunga Iris dengan Algoritma Random Forest
 
 Proyek ini menunjukkan bagaimana klasifikasi bunga iris menggunakan `scikit-learn` dengan menggunakan algoritma random forest. Contoh implementasi di [link ini](https://izzalDev.github.io/iris-classification).
 
