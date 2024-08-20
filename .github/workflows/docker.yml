@@ -2,7 +2,8 @@ name: Create an publish a Docker image
 
 on:
   push:
-    brances: [main]
+    branches: ["main"]
+    paths: ["web/**"]
 
 jobs:
   build-and-push-image:
