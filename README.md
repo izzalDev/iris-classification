@@ -1,3 +1,7 @@
+<div align="center">
+    <img src="https://socialify.git.ci/izzalDev/iris-classification/image?forks=1&issues=1&language=1&name=1&owner=1&pattern=Solid&pulls=1&stargazers=1&theme=Light" alt="secondhand-car-valuation" width="1280"/>    
+</div>
+
 # 🤖 Klasifikasi Bunga Iris dengan Algoritma Random Forest
 
 Proyek ini menunjukkan bagaimana klasifikasi bunga iris menggunakan `scikit-learn` dengan menggunakan algoritma random forest. Contoh implementasi di [link ini](https://izzalDev.github.io/iris-classification).
