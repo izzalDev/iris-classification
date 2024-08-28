@@ -6,6 +6,46 @@
 
 Proyek ini menunjukkan bagaimana klasifikasi bunga iris menggunakan `scikit-learn` dengan menggunakan algoritma random forest. Contoh implementasi di [link ini](https://izzalDev.github.io/iris-classification).
 
+## Struktur Direktori
+
+```bash
+├── .github                        # Folder untuk konfigurasi GitHub Actions
+│   └── workflows                  # Folder untuk definisi workflow CI/CD
+│       ├── docker.yml             # Workflow untuk build dan deploy Docker ke Github Container registry
+│       └── static.yml             # Workflow untuk build dan deploy web ke Github Pages
+├── .gitignore                     # File untuk mengabaikan file dan folder tertentu dari kontrol versi Git
+├── LICENSE                        # File lisensi proyek
+├── README.md                      # File README untuk dokumentasi proyek
+├── data                           # Folder untuk data mentah
+│   └── raw                        # Subfolder untuk data mentah
+│       └── Iris.csv               # Dataset Iris dalam format CSV
+├── environment.yml                # File konfigurasi conda environment
+├── models                         # Folder untuk model yang sudah dilatih
+│   └── model.onnx                 # Model ONNX yang sudah dilatih
+├── notebook                       # Folder untuk notebook Jupyter
+│   └── classification.ipynb       # Notebook untuk klasifikasi
+└── web                            # Folder untuk proyek web
+    ├── .gitignore                 # File .gitignore khusus untuk folder web
+    ├── Dockerfile                 # File Dockerfile untuk membangun image Docker
+    ├── README.md                  # README khusus untuk bagian web
+    ├── index.html                 # File HTML utama untuk aplikasi web
+    ├── package-lock.json          # File lock untuk dependensi npm
+    ├── package.json               # File konfigurasi npm untuk dependensi
+    ├── postcss.config.js          # Konfigurasi PostCSS
+    ├── public                     # Folder untuk aset publik
+    │   ├── background.jpg         # Gambar latar belakang
+    │   ├── model.onnx             # Model ONNX (juga di folder models)
+    │   └── vite.svg               # Logo Vite
+    ├── src                        # Folder untuk kode sumber
+    │   ├── main.ts                # File utama TypeScript
+    │   ├── style.css              # File CSS untuk styling
+    │   └── typescript.svg         # Logo TypeScript
+    ├── tailwind.config.ts         # Konfigurasi Tailwind CSS
+    ├── tsconfig.json              # Konfigurasi TypeScript
+    └── vite.config.ts             # Konfigurasi Vite
+
+```
+
 ## Instalasi
 
 1. Clone repositori ini:
