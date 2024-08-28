@@ -47,12 +47,10 @@ jobs:
       # Menavigasi ke direktori 'web', menampilkan daftar file, dan menginstal dependensi Node.js
       - run: |
           cd web
-          ls
           npm install
 
       # Langkah untuk membangun aplikasi menggunakan npm (misalnya, menghasilkan file statis)
       - run: |
-          ls
           cd web
           npm run build
 
