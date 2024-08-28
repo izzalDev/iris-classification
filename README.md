@@ -24,7 +24,7 @@ Proyek ini menunjukkan bagaimana klasifikasi bunga iris menggunakan `scikit-lear
 │   └── model.onnx                 # Model ONNX yang sudah dilatih
 ├── notebook                       # Folder untuk notebook Jupyter
 │   └── classification.ipynb       # Notebook untuk klasifikasi
-└── web                            # Folder untuk proyek web
+└── web                            # Folder untuk implementasi di web
     ├── .gitignore                 # File .gitignore khusus untuk folder web
     ├── Dockerfile                 # File Dockerfile untuk membangun image Docker
     ├── README.md                  # README khusus untuk bagian web
