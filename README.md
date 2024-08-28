@@ -11,13 +11,13 @@ Proyek ini menunjukkan bagaimana klasifikasi bunga iris menggunakan `scikit-lear
 ```bash
 ├── .github                        # Folder untuk konfigurasi GitHub Actions
 │   └── workflows                  # Folder untuk definisi workflow CI/CD
-│       ├── docker.yml             # Workflow untuk build dan deploy Docker ke Github Container registry
+│       ├── docker.yml             # Workflow untuk build dan deploy Docker ke Github Package
 │       └── static.yml             # Workflow untuk build dan deploy web ke Github Pages
-├── .gitignore                     # File untuk mengabaikan file dan folder tertentu dari kontrol versi Git
+├── .gitignore                     # File untuk mengabaikan file dan folder dari Git
 ├── LICENSE                        # File lisensi proyek
 ├── README.md                      # File README untuk dokumentasi proyek
-├── data                           # Folder untuk data mentah
-│   └── raw                        # Subfolder untuk data mentah
+├── data                           # Folder untuk data
+│   └── raw                        
 │       └── Iris.csv               # Dataset Iris dalam format CSV
 ├── environment.yml                # File konfigurasi conda environment
 ├── models                         # Folder untuk model yang sudah dilatih
@@ -29,13 +29,13 @@ Proyek ini menunjukkan bagaimana klasifikasi bunga iris menggunakan `scikit-lear
     ├── Dockerfile                 # File Dockerfile untuk membangun image Docker
     ├── README.md                  # README khusus untuk bagian web
     ├── index.html                 # File HTML utama untuk aplikasi web
-    ├── package-lock.json          # File lock untuk dependensi npm
+    ├── package-lock.json          
     ├── package.json               # File konfigurasi npm untuk dependensi
     ├── postcss.config.js          # Konfigurasi PostCSS
     ├── public                     # Folder untuk aset publik
-    │   ├── background.jpg         # Gambar latar belakang
+    │   ├── background.jpg         
     │   ├── model.onnx             # Model ONNX (juga di folder models)
-    │   └── vite.svg               # Logo Vite
+    │   └── vite.svg               
     ├── src                        # Folder untuk kode sumber
     │   ├── main.ts                # File utama TypeScript
     │   ├── style.css              # File CSS untuk styling
