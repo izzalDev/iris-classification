@@ -2,53 +2,72 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Menjalankan workflow ini setiap kali ada push yang dilakukan ke branch 'main'
   push:
     branches: ["main"]
+    # Hanya jalankan workflow jika perubahan terjadi pada folder 'web' atau di dalamnya
     paths: ["web/**"]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Memungkinkan workflow ini dijalankan secara manual dari tab Actions di GitHub
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# Mengatur izin dari GITHUB_TOKEN untuk memungkinkan deployment ke GitHub Pages
 permissions:
+  # Membaca konten repository
   contents: read
+  # Menulis ke GitHub Pages
   pages: write
+  # Menulis id-token yang diperlukan untuk otorisasi deployment
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Hanya mengizinkan satu deployment berjalan secara bersamaan, dan mengabaikan deployment yang sedang antri.
+# Namun, tidak membatalkan deployment yang sedang berjalan agar deployment produksi bisa selesai.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
+  # Job untuk deployment karena hanya ada satu tugas deployment yang perlu dilakukan
   deploy:
     environment:
+      # Menentukan lingkungan untuk deployment, yaitu GitHub Pages
       name: github-pages
+      # Menetapkan URL dari halaman yang dideploy menggunakan output dari langkah deployment
       url: ${{ steps.deployment.outputs.page_url }}
+    # Menggunakan sistem operasi Ubuntu versi terbaru sebagai lingkungan untuk menjalankan job ini
     runs-on: ubuntu-latest
     steps:
+      # Langkah untuk checkout repository, mengunduh konten dari branch yang ditentukan
       - name: Checkout
         uses: actions/checkout@v4
+
+      # Langkah untuk menyiapkan Node.js agar dapat menjalankan perintah npm
       - name: Setup Node
         uses: actions/setup-node@v4
+      # Menavigasi ke direktori 'web', menampilkan daftar file, dan menginstal dependensi Node.js
       - run: |
           cd web
           ls
           npm install
+
+      # Langkah untuk membangun aplikasi menggunakan npm (misalnya, menghasilkan file statis)
       - run: |
           ls
           cd web
           npm run build
+
+      # Mengonfigurasi GitHub Pages untuk deployment
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+      # Mengunggah artefak yang dihasilkan dari proses build ke GitHub Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
+          # Mengunggah seluruh isi direktori 'web/dist' yang berisi file statis yang dihasilkan
           path: './web/dist'
+
+      # Menjalankan deployment ke GitHub Pages menggunakan artefak yang telah diunggah
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
