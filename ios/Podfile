@@ -1,0 +1,4 @@
+target 'iRIS' do
+  use_frameworks!
+  pod 'onnxruntime-objc'
+end
